@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> Assignment 5 </title>
+<style>
+	
+
+h2,p{margin: 20px;}
+
+
+.container{
+	outline: 5px dotted #ff0000;
+	height: 38px;
+	width: 200px;
+	color: #FFF;
+	text-align: center;
+	font-family: sans-serif;
+}
+
+	</style>
+</head>
+
+<body>
+	<div class="container" style="background-color:#0033cc;"> 
+		<h1> Lottery </h1>
+	</div>
+
+</br>
+
+
+<script language = "javascript">
+
+
+document.write("Lottery Numbers:");
+luckyball = Math.floor(Math.random()*17+1);
+var lottery = [];
+for (j = 0; j < 5; j++)
+{
+	lotterynums = Math.floor(Math.random()*47+1);
+	lottery[j] = lotterynums;	
+}
+lottery.sort(function(a, b){return a-b});
+
+for (n = 0; n < 5; n++)
+{
+	document.write(" " + lottery[n]);
+}
+document.write(", "+ luckyball + " ");
+document.write("<br>");
+
+
+document.write("Your numbers:");
+nums = prompt("Enter the first 5 winning numbers","");
+var arr = nums.split(" ").map(Number);
+for (i = 0; i < arr.length; i ++)
+{
+	document.write(" " + arr[i]);
+}
+lucky = prompt("Enter the lucky ball number","");
+document.write(", " + lucky);
+document.write("<br>");
+document.write("<br>");
+
+
+match = 0;
+for (a = 0; a < 5; a++)
+{
+	for (b = 0; b < 5; b++)
+	{
+		if (arr[b] == lottery[a])
+		{
+			match++; 
+		}
+	}
+}
+document.write("Amount of first 5 matches: " + match);
+document.write("<br>");
+
+if (lucky == luckyball)
+{
+	document.write("Lucky ball matched!");
+
+}
+else
+{
+	document.write("Lucky ball doesn't match.");
+}
+document.write("<br>");
+document.write("<br>");
+
+document.write("Payout: ");
+if (match == 5)
+{
+	if (lucky == luckyball)
+	{
+		document.write("$7,000 a WEEK for LIFE");
+	}
+	document.write("$25,000 a YEAR for LIFE");
+}
+else if (match == 4)
+{
+	if (lucky == luckyball)
+	{
+		document.write("$5,000");
+	}
+	document.write("$200");
+}
+else if (match == 3)
+{
+	if (lucky == luckyball)
+	{
+		document.write("$150");
+	}
+	document.write("$20");
+}
+else if (match == 2)
+{
+	if (lucky == luckyball)
+	{
+		document.write("$25");
+	}
+	document.write("$3");
+}
+else if (match == 1)
+{
+	if (lucky == luckyball)
+	{
+		document.write("$6");
+	}
+	document.write("$0");
+}
+else if (match == 0)
+{
+	if (lucky == luckyball)
+	{
+		document.write("$4");
+	}
+	document.write("$0");
+}
+
+
+
+
+
+
+
+</script>
+
+</body>
+
+</html>
